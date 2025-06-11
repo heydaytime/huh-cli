@@ -1,1 +1,135 @@
-# huh-cli
+# huh – AI CLI Syntax Autocorrector (Pre-Pre-Pre Alpha 🚧)
+
+**Ever mistyped a CLI command and got hit with a vague error?**  
+*huh* is an experimental (and very early stage) CLI tool that suggests what you might have meant to type.
+
+---
+
+## 🔧 Setup Instructions
+
+Follow these steps to set up your development environment.
+
+### 1. Install Ollama (for macOS)
+
+Via Homebrew:
+
+```bash
+brew install ollama
+```
+
+Or download it directly from [ollama.com](https://ollama.com/download).
+
+> 💡 This tool also supports Linux. Use your preferred package manager to install Ollama.
+
+---
+
+### 2. Set Up Python Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+> We assume that you already have python installed and configured on your system
+---
+
+### 3. Install Dependencies
+
+Install [Typer](https://github.com/fastapi/typer):
+
+```bash
+pip install typer
+```
+
+Enable tab completion:
+
+```bash
+typer --install-completion
+```
+
+---
+
+### 4. Run the CLI Tool (Bare Minimum)
+
+```bash
+pip install . 
+```
+
+run using Typer (with tab-completetion in args support):
+
+```bash
+typer ./src/huh/cli.py run lastcmd --n 3 
+```
+
+---
+
+# Old_README.md just for reference from lastcmd
+
+## lastcmd
+
+A simple Python command-line tool to print the last command(s) you ran in your zsh shell.
+
+## Features
+- Prints the last command from your zsh history by default
+- Supports printing the last N commands (e.g., `lastcmd -n 5` or `lastcmd -5`)
+- Skips its own invocations in the output
+
+## Installation
+
+1. **Clone or download this repository** to your computer.
+2. Open a terminal and navigate to the directory containing `setup.py` and `lastcmd.py`.
+3. Install the package locally (for your user):
+   ```sh
+   pip install --user .
+   ```
+
+4. **Ensure the Python user scripts directory is in your PATH.**
+   Add this line to your `~/.zshrc` (if not already present):
+   ```sh
+   export PATH="$HOME/Library/Python/3.11/bin:$PATH"
+   ```
+   This should be the folder the lastcmd.py file is. Replace `3.11` with your Python version if different.
+
+5. **Allow the zsh_history file to update after every command.**
+   Add these lines to `~/.zshrc` as well:
+   ```sh
+   setopt INC_APPEND_HISTORY       # Write every command to the history file immediately
+   setopt SHARE_HISTORY            # Share command history across terminals
+   setopt HIST_IGNORE_SPACE        # (Optional) Ignore commands starting with space
+   setopt HIST_SAVE_NO_DUPS        # Don't write duplicates to file
+   ```
+
+6. Reload your shell configuration:
+   ```sh
+   source ~/.zshrc
+   ```
+
+## Usage
+
+- Print the last command:
+  ```sh
+  lastcmd
+  ```
+- Print the last 5 commands:
+  ```sh
+  lastcmd -n 5
+  # or
+  lastcmd -5
+  ```
+
+## Notes
+- This tool reads from your `~/.zsh_history` file. It is designed for zsh users.
+- If you previously set an alias for `lastcmd`, remove it from your `~/.zshrc` to use the installed command globally.
+- If you use a different shell (like bash), you will need to modify the script to read from the appropriate history file.
+
+## Uninstallation
+To uninstall, run:
+```sh
+pip uninstall lastcmd
+```
+
+# TODOS
+
+- [] set email in pyproject.toml
+- [] spell check name in pyproject.toml and license
+- [] make this readme more readable
+- [] todo this todo list

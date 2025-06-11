@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "huh"
+version = "0.0.1"
+authors = [
+  { name="Mihir Belose", email="belose@wisc.edu" },
+  { name="Siddhant Upadhyay", email=" XYZ @wisc.edu" }, # TODO SET EMAIL
+]
+description = "AI CLI Syntax Autocorrector"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "typer>=0.16.0",
+    "rich",        # for better formatting
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.scripts]
+huh = "huh.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/heydaytime/huh-cli"
+Issues = "https://github.com/heydaytime/huh-cli/issues"
