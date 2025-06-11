@@ -7,7 +7,7 @@ name = "huh"
 version = "0.0.1"
 authors = [
   { name="Mihir Belose", email="belose@wisc.edu" },
-  { name="Siddhant Upadhyay", email=" XYZ @wisc.edu" }, # TODO SET EMAIL
+  { name="Siddhant Upadhyay", email="upadhyay6@wisc.edu" },
 ]
 description = "AI CLI Syntax Autocorrector"
 readme = "README.md"
