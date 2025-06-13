@@ -5,6 +5,38 @@
 
 ---
 
+# Updates JUN 13 2025
+## RUNNING THE TOOL
+
+I have no idea why, but you have to do this anytime you make a change to the files.
+I think it is precompiling stuff and you need to reinstall everything to make the changes known.
+
+```bash
+rm -rf build/
+pip install .
+typer ./src/huh/cli.py run lastcmd --n 3 
+```
+
+I also added multiline command support, for eg.
+```bash
+ls \
+-l
+```
+
+is actually one command, not two. It is the same as
+```bash
+ls -l
+```
+so the lastcmd should treat it as one command.
+
+I also did some basic refactoring. 
+
+Added support for .bash_history too. 
+Idk if this was already there, but I hard coded lastcmd to only work on mac and linux.
+Windows is 🙅‍♂️
+
+---
+
 ## 🔧 Setup Instructions
 
 Follow these steps to set up your development environment.

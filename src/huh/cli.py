@@ -20,4 +20,4 @@ def lastcmd(n: Optional[str] = None):
         typer.echo(f"You chose to see {num} last commands")
         print(get_last_command(num))
     except ValueError:
-        typer.echo("Bad input: Please enter a valid number.")
+        typer.echo("bad input: please enter a valid number.")

@@ -15,6 +15,7 @@ requires-python = ">=3.9"
 dependencies = [
     "typer>=0.16.0",
     "rich",        # for better formatting
+    "numpy",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
