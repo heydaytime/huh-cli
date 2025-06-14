@@ -4,6 +4,35 @@
 *huh* is an experimental (and very early stage) CLI tool that suggests what you might have meant to type.
 
 ---
+# Updates JUN 14 2025
+
+I found out that the 'lastcmd' tool is already a part of macos/linux. 
+
+You can get the by simply running
+
+```bash
+fn -ln -1
+```
+That simplifies the whole thing a lot. We can now just focus on implementing AI and our fast cache solution. 
+
+To get this new functionality running do the following:
+
+- Append $eval("python /path/to/your/__main__.py --alias") to your ~/.zshrc file
+- Run the following command to make the script executable:
+```bash
+chmod +x /path/to/your/__main__.py
+```
+- Also source your .zshrc file to make the changes take effect:
+```bash
+source ~/.zshrc
+```
+
+NOW you can run the tool using the command:
+
+```bash
+huhcli
+```
+And then it stores the last command in storage.txt file in your huh-cli project root directory. 
 
 # Updates JUN 13 2025
 ## RUNNING THE TOOL
