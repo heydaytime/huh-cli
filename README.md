@@ -4,6 +4,22 @@
 *huh* is an experimental (and very early stage) CLI tool that suggests what you might have meant to type.
 
 ---
+# Updates JUN 16 2025
+
+I finally figured out how to get tab completion working with typer. 
+It used to work with the typer command but not the huhcli command. 
+It's pretty straightforward actually. I just needed to forward all commands form __main__.py to main.py
+
+Add this to your .zshrc file to enable the tool:
+
+```shell
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+export HUHCLI_PATH="$HOME/ProgrammingProjects/huh-cli"
+eval "$(python $HUHCLI_PATH/src/huh/__main__.py --alias)"
+
+```
+
+
 # Updates JUN 14 2025
 
 I found out that the 'lastcmd' tool is already a part of macos/linux. 

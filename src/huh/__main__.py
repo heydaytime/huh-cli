@@ -1,24 +1,20 @@
 #!/usr/bin/env python3
 
-# from huh.cli import app
-#
-# if __name__ == "__main__":
-#     app()
-
 import sys
+import os
+import subprocess
+
 def print_alias():
     print("""
-          huhcli () {
-                LAST_CMD=$(fc -ln -1)
-                ~/ProgrammingProjects/huh-cli/src/huh/__main__.py "$LAST_CMD"
-          }
-          """)
+function huhcli() {
+  source "$HUHCLI_PATH/venv/bin/activate"
+  python -m huh "$@"
+}
+""")
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        print("Please provide a command to store or use the --alias option to print the alias.")
-    elif '--alias' in sys.argv:
+    if '--alias' in sys.argv:
         print_alias()
     else:
-        with open('storage.txt', 'a') as f:
-            f.write(' '.join(sys.argv[1:]) + '\n')
+        main_path = os.path.join(os.path.dirname(__file__), "main.py")
+        subprocess.run([sys.executable, main_path] + sys.argv[1:])
