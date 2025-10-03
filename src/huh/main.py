@@ -2,13 +2,16 @@
 
 from typing import Optional
 import typer
+import getPass
 
 app = typer.Typer()
 
 
 @app.command()
-def hello(name: str):
-    print(f"Hello {name}!")
+def hello(name: str = None):
+    if not name:
+        name = getpass.getuser()
+    typer.echo(f"Hello {name}!")
 
 @app.command()
 def store(n: Optional[str] = None):
